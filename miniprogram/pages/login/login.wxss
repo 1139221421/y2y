@@ -1,0 +1,32 @@
+/* pages/login/login.wxss */
+page {
+  background: #fff;
+  position: relative;
+}
+
+.login_bg {
+  width: 100%;
+  height: 100vh;
+  opacity: 0.6;
+  position: absolute;
+}
+
+.login_logo {
+  margin-top: 350rpx;
+  width: 200rpx;
+  height: 200rpx;
+  position: relative;
+  left: 50%;
+  margin-left: -100rpx;
+  border-radius: 100rpx;
+  opacity: 0.6;
+}
+
+.btn_wrap {
+  padding: 200rpx 40rpx;
+}
+
+.login_btn {
+  background-color: #3385ff;
+  color: #fff;
+}

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
+    "pages/login/login",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -21,6 +21,32 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "y2y",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "联系人"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-tabbar": "@vant/weapp/tabbar",
+    "van-tabbar-item": "@vant/weapp/tabbar-item",
+    "van-icon": "@vant/weapp/icon",
+    "van-dialog": "@vant/weapp/dialog",
+    "van-search": "@vant/weapp/search",
+    "van-toast": "@vant/weapp/toast",
+    "van-button": "@vant/weapp/button",
+    "van-popup": "@vant/weapp/popup",
+    "van-switch": "@vant/weapp/switch",
+    "van-notify": "@vant/weapp/notify",
+    "header": "./components/header/header"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

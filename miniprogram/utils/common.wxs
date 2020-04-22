@@ -1,0 +1,63 @@
+  /**
+   * 使用wxml
+   * <wxs src="../../../utils/common.wxs" module="utils"></wxs>
+   * <view>{{ utils.formatNum(num) }}</view>
+   */
+var common = {
+  /**
+   * 格式化数字
+   * @param num 数字
+   * @param type 可选值 'normal'、'en'、'simple'
+   *  'normal': 100000
+   *  'en': 100,000
+   *  'simple': 10w
+   * @param isFloat 是否显示为小数
+   * @param fixedNum 小数位数
+   */
+  formatNum: function (num, type = 'simple', isFloat = true, fixedNum = 2) {
+    if (type === 'en') {
+      num = num.toLocaleString();
+      if (isFloat) {
+        let index = num.indexOf('.');
+        let fixed_num = num.slice(index).length - 1;
+        if (fixedNum > fixed_num) {
+          num += ''.padEnd(fixedNum - fixed_num, '0')
+        }
+      } else {
+        let reg = getRegExp('(\\.\\d+$)');
+        num = num.replace(reg, '');
+      }
+
+    } else if (type === 'simple') {
+      if (num >= 10000) {
+        num = (isFloat ? (num / 10000).toFixed(fixedNum) : Number.parseInt(num / 10000)) + 'w'
+      } else if (num >= 1000) {
+        num = (isFloat ? (num / 1000).toFixed(fixedNum) : Number.parseInt(num / 1000)) + 'k'
+      }
+    }
+    return num;
+  },
+  split: function (str) {
+    return str ? str.split(',') : '';
+  },
+  formatRichText: function (html) {
+    if (!html) {
+      return;
+    }
+    var newContent = html.replace(getRegExp("<img[^>]*>", "gi"), function (match, capture) {
+      match = match.replace(getRegExp('style="[^"]+"', 'gi'), '').replace(getRegExp("style='[^']+'", "gi"), '');
+      match = match.replace(getRegExp('width="[^"]+"', 'gi'), '').replace(getRegExp("width='[^']+'", "gi"), '');
+      match = match.replace(getRegExp('height="[^"]+"', 'gi'), '').replace(getRegExp("height='[^']+'", "gi"), '');
+      return match;
+    });
+    newContent = newContent.replace(getRegExp('style="[^"]+"', 'gi'), function (match, capture) {
+      match = match.replace(getRegExp('width:[^;]+;', 'gi'), 'max-width:100%;').replace(getRegExp('width:[^;]+;', 'gi'), 'max-width:100%;');
+      return match;
+    });
+    newContent = newContent.replace(getRegExp('<br[^>]*\/>', 'gi'), '');
+    newContent = newContent.replace(getRegExp('\<img', 'gi'), '<img style="max-width:100%;height:auto;display:block;margin-top:0;margin-bottom:0;"');
+    return newContent;
+  }
+}
+
+module.exports = common;

@@ -1,0 +1,29 @@
+/* 全部不用换成 rpx */
+.header {
+  background: white;
+  display:flex;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+.header .icon {
+  padding: 5px;
+  position: absolute;
+  left: 10px;
+  font-size: 21px;
+  transform: translateY(-50%);
+}
+.header .icon-home {
+  border: 1rpx solid #cdcdcd;
+  background: #d9d9d9;
+  border-radius:50%;
+}
+.header .title {
+  flex:1;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}

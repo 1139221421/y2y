@@ -1,0 +1,32 @@
+<van-tabs
+  active="{{ currentTabIndex }}"
+  bind:change="onTabChange"
+  color="rgba(90,190,247,0.97)">
+  <van-tab
+    title="{{ tab.label || tab }}"
+    wx:for="{{ tabList }}"
+    wx:key="index"
+    wx:for-item="tab">
+  </van-tab>
+</van-tabs>
+
+<scroll class="scroll"
+        listLen="{{ listLen }}"
+        scrollHeight="{{ scrollHeight }}"
+        paddingBottom="{{ paddingBottom }}"
+        top="{{ top }}"
+        refresher-enabled="{{refreshEnable}}"
+        refresher-threshold="{{refresherThreshold}}"
+        refresher-default-style="{{refresherDefaultStyle}}"
+        refresher-background="{{refresherBackground}}"
+        refresher-triggered="{{refresherTriggered}}"
+        is-show-more="{{ isShowMore }}"
+        is-loading="{{ isLoading }}"
+        has-more="{{ hasMore }}"
+        bind:pulling="onPulling"
+        bind:restore="onRestore"
+        bind:abort="onAbort"
+        bind:refresh="onRefresh"
+        bind:load-more="onLoadMore">
+  <slot></slot>
+</scroll>

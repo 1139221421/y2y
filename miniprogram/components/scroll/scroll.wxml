@@ -1,0 +1,37 @@
+<scroll-view class="scroll-wrap"
+             scroll-y="true"
+             scroll-top="{{ scrollTop }}"
+             scroll-anchoring="true"
+             enable-back-to-top="true"
+             style="height: {{scrollHeight}}px; bottom: {{bottom}};top: {{top}}"
+             refresher-enabled="{{refreshEnable}}"
+             refresher-threshold="{{refresherThreshold}}"
+             refresher-default-style="{{refresherDefaultStyle}}"
+             refresher-background="{{refresherBackground}}"
+             refresher-triggered="{{refresherTriggered}}"
+             lower-threshold="250"
+             bindrefresherpulling="onPulling"
+             bindrefresherrestore="onRestore"
+             bindrefresherabort="onAbort"
+             bindscrolltolower="loadMore"
+             bindrefresherrefresh='refresher'
+             wx:if="{{ scrollHeight }}">
+    <!-- 有数据 -->
+    <view wx:if="{{listLen > 0}}" style="height: {{scrollHeight + 1}}px">
+        <slot></slot>
+
+        <block wx:if="{{ isShowMore }}">
+            <view class="load-more" wx:if="{{ hasMore }}">加载中...</view>
+            <view class="no-more" wx:else>已经没有数据了</view>
+        </block>
+    </view>
+
+    <!-- 无结果 -->
+    <view wx:elif="{{ !isLoading }}" class="no-result">
+        <slot name="no-result" wx:if="{{ customNoResult }}"></slot>
+        <text class="text" wx:else>{{ noResultText }}</text>
+    </view>
+
+    <!-- 加载中 -->
+    <view wx:else class="loading">加载数据中...</view>
+</scroll-view>

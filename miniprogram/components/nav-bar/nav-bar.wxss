@@ -1,0 +1,22 @@
+.nav-bar-wrapper {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  height: 100rpx;
+}
+.nav-bar-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.nav-bar-item.active {
+  color:  rgba(90,190,247,0.97);
+}
+.nav-bar-item .text {
+  font-size: 24rpx;
+}

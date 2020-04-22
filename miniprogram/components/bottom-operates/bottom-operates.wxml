@@ -1,0 +1,25 @@
+<!-- 操作弹出框 -->
+<van-popup
+  show="{{ show }}"
+  position="{{ position }}"
+  z-index="{{zIndex}}"
+  bind:close="closePopup"
+>
+  <!-- 弹出框标题 -->
+  <view class="modal-title-wrapper" wx:if="{{ title }}">
+    <text class="title ellipsis">{{ title }}</text>
+    <text class="id" wx:if="{{ unitId }}">(ID: {{ unitId }})</text>
+  </view>
+  <!-- 操作列表 -->
+  <view class="operate-list">
+    <view class="icon-wrapper {{ item.disabled ? 'disabled' : '' }}"
+          hover-class="{{ item.disabled ? '' : 'active-icon-wrapper'}}"
+          wx:for="{{ list }}"
+          wx:key="index"
+          data-index="{{index}}"
+          bindtap="clickItem">
+      <view class="iconfont {{ item.icon }}"></view>
+      <view class="text">{{ item.text }}</view>
+    </view>
+  </view>
+</van-popup>

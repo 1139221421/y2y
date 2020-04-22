@@ -1,0 +1,29 @@
+<view class="left-bar">
+  <!-- 头像信息 -->
+  <view class="user-info">
+    <image class="avatar" mode="aspectFill" src="{{info.avatarUrl}}"></image>
+    <view class="text">
+      <view class="username ellipsis" wx:if="{{info.canIUse}}">{{info.nickName}}</view>
+      <view class="username ellipsis" wx:else>{{info.account}}</view>
+      <view class="department ellipsis">{{info.deptName?info.deptName:'未设置'}}</view>
+    </view>
+  </view>
+  <!-- 所属公司 -->
+  <view class="company">{{info.orgName?info.orgName:'未设置'}}</view>
+
+  <!-- 操作列表 -->
+  <block wx:for="{{ operatorList }}" wx:key="index">
+    <view class="operate-list {{ item.isOnlineServer ? 'online-server' : ''}}" bindtap="{{ item.done }}">
+      <!-- 在线客服按钮 -->
+      <button class="operate-list contact-button"
+              type="default-dark"
+              size="20"
+              show-message-card="{{true}}"
+              open-type="contact"
+              session-from="contact"
+              wx:if="{{ item.isOnlineServer }}">{{ item.text }}</button>
+      <text class="icon iconfont {{ item.icon }}"></text>
+      <text class="text">{{ item.text }}</text>
+    </view>
+  </block>
+</view>

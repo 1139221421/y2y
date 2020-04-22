@@ -1,0 +1,32 @@
+.scroll-wrap {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.scroll-wrap > view {
+    display: block;
+    width: 100%;
+}
+
+.loading,
+.load-more,
+.no-more,
+.no-result .text {
+    padding: 40 rpx 0;
+    text-align: center;
+    color: #666;
+    font-size: 26 rpx;
+}
+
+.no-result {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40 rpx 0;
+}
+
+.no-result .text {
+    color: #999;
+}

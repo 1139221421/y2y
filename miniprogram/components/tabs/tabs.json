@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "scroll": "../scroll/scroll",
+    "van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs"
+  }
+}

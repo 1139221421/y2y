@@ -1,0 +1,35 @@
+/* 此处放一些排版类的样式 */
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.clearfix {
+    zoom: 1
+}
+
+.ellipsis {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+
+image {
+  object-fit: cover;
+}
+
+/* 点中的样式 */
+view.item-active {
+  background: rgba(90,190,247,0.2) !important;
+}
+
+.no-function {
+    font-size: 28rpx;
+    padding-top: 200rpx;
+    color: #c8c9cc;
+    text-align: center;
+}

@@ -1,11 +1,11 @@
 <!-- 底部导航栏 -->
 <view class="nav-bar-wrapper">
-  <view class="nav-bar-item {{ active===index ? 'active' : '' }}"
-        wx:for="{{ navList }}" 
-        wx:key="index"
-        data-index="{{ index }}"
-        bindtap="onChange">
-    <van-icon class="icon" slot="icon" name="{{ item.icon }}" size="56rpx" />
-    <view class="text">{{ item.text }}</view>
-  </view>
+    <view class="nav-bar-item {{ active===index ? 'active' : '' }}"
+          wx:for="{{ navList }}"
+          wx:key="index"
+          data-index="{{ index }}"
+          bindtap="cliBar">
+        <van-icon class="icon" slot="icon" name="{{ item.icon }}" size="56rpx"/>
+        <view class="text">{{ item.text }}</view>
+    </view>
 </view>

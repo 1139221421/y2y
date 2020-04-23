@@ -2,15 +2,19 @@ const app = getApp();
 
 Page({
     data: {
-        searchViewTop: app.globalData.navigateHeaderHeight, // 搜索栏的top
         scrollHeight: 0, // 滚动屏的高度
-        refresherTriggered: false, // 下拉刷新状态
-        // 总数统计
-        totalList: {
-            activity: {text: '11', color: '#4CBFD0'},
-            form: {text: '22', color: '#F9CC46'},
-            information: {text: '33', color: '#51BA89'},
-        }
+        refresherTriggered: false,
+        list: [1, 2, 3, 4, 5]
+    },
+    // 加载触发
+    onLoad: function () {
+        this.initStyle();
+    },
+    initStyle() {
+        // 设置内容高度
+        this.setData({
+            scrollHeight: app.globalData.systemInfo.screenHeight - 200 * app.globalData.rpx
+        });
     },
     // 点击分享按钮
     onShareAppMessage(e) {
@@ -29,6 +33,11 @@ Page({
     },
     // 刷新
     onRefresh(e) {
+        setTimeout(() => {
+            this.setData({
+                refresherTriggered: false,
+            })
+        }, 2000)
     },
     onLoadMore(e) {
     }

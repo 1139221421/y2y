@@ -4,7 +4,6 @@ Component({
         multipleSlots: true,
         styleIsolation: 'shared'
     },
-
     /**
      * 组件的属性列表
      */
@@ -12,7 +11,7 @@ Component({
         // 数据的长度
         listLen: {
             type: Number,
-            value: []
+            value: 0
         },
         // 没数据时展示的文本
         noResultText: {
@@ -54,10 +53,10 @@ Component({
             type: Boolean,
             value: false
         },
-        // 滚动屏高度
+        // 内容高度
         scrollHeight: {
             type: Number,
-            value: ''
+            value: 0
         },
         // 滚动屏的 bottom
         bottom: {
@@ -67,7 +66,7 @@ Component({
         // 滚动屏的 top
         top: {
             type: String,
-            value: '100rpx'
+            value: '0rpx'
         },
         // 是否在加载数据中
         isLoading: {
@@ -100,7 +99,7 @@ Component({
     methods: {
         // 下拉触发
         onPulling(e) {
-            console.log('下拉触发')
+            console.log('下拉触发');
             if (this.data.listLen == 0) {
                 this.setData({
                     refreshEnable: false,
@@ -111,7 +110,7 @@ Component({
         },
         // 复位触发
         onRestore(e) {
-            console.log('复位触发')
+            console.log('复位触发');
             this.setData({
                 refreshEnable: true,
             })
@@ -119,7 +118,7 @@ Component({
         },
         // 中止触发
         onAbort(e) {
-            console.log('中止触发')
+            console.log('中止触发');
             this.setData({
                 refreshEnable: true,
             })
@@ -127,15 +126,13 @@ Component({
         },
         // 刷新
         refresher(e) {
-            console.log('刷新')
+            console.log('刷新');
             this.triggerEvent('refresh', {}, {bubbles: true});
         },
         // 加载更多
         loadMore(e) {
-            console.log('加载更多')
             if (this.data.loadMoreEnable) {
-                console.log(e);
-                // console.log(this.data.pageParams.currentPage);
+                console.log('加载更多')
                 this.triggerEvent('load-more', {}, {bubbles: true});
             }
         },

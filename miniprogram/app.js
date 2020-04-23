@@ -1,7 +1,6 @@
 //app.js
 App({
     onLaunch: function () {
-
         if (!wx.cloud) {
             console.error('请使用 2.2.3 或以上的基础库以使用云能力')
         } else {
@@ -16,27 +15,26 @@ App({
 
             try {
                 this.globalData.systemInfo = wx.getSystemInfoSync();
-                this.globalData.rpx = this.globalData.systemInfo.windowWidth / 750
+                this.globalData.rpx = this.globalData.systemInfo.windowWidth / 750;
                 this.globalData.statusBarHeight = this.globalData.systemInfo.statusBarHeight;
                 let menuButton = this.globalData.menuButton = wx.getMenuButtonBoundingClientRect();
                 this.globalData.navigateHeaderHeight = menuButton.top - this.globalData.statusBarHeight + menuButton.bottom;
             } catch (e) {
+                console.log('初始化错误', e)
             }
         }
-
-        this.globalData = {
-            userInfo: null,
-            systemInfo: {},     // 系统信息
-            rpx: 0,   // rpx转换为px的比例
-            statusBarHeight: 0,
-            menuButton: 0,
-            navigateHeaderHeight: 64,   // 原生 header 的高度
-            // 底部导航栏
-            navList: [
-                { icon: 'home-o', text: '首页', to: '/pages/index/index' },
-                { icon: 'apps-o', text: '社会活动', to: '/pages/active/list/active-list' },
-                { icon: 'contact', text: '联系人', to: '/pages/contacts/list/contacts-list' }
-            ]
-        }
+    },
+    globalData: {
+        userInfo: null,
+        systemInfo: {},     // 系统信息
+        rpx: 0,   // rpx转换为px的比例
+        statusBarHeight: 0,
+        menuButton: 0,
+        navigateHeaderHeight: 64,   // 原生 header 的高度
+        // 底部导航栏
+        navList: [
+            {icon: 'home-o', text: '首页', to: '/pages/index/index'},
+            {icon: 'apps-o', text: '登录', to: '/pages/login/login'}
+        ]
     }
 })

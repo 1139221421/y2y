@@ -1,7 +1,6 @@
 .scroll-wrap {
     position: absolute;
     width: 100%;
-    z-index: 1;
 }
 
 .scroll-wrap > view {

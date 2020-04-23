@@ -1,25 +1,13 @@
 <wxs src="../../utils/common.wxs" module="utils"></wxs>
-
-<!-- header -->
-<header title="首页" icon=""></header>
-
 <!-- 内容区 -->
-<scroll listLen="3"
+<scroll listLen="10"
         scrollHeight="{{ scrollHeight }}"
-        top="calc(100rpx + {{ searchViewTop }}px)"
         refresher-triggered="{{ refresherTriggered }}"
-        is-show-more="{{ false }}"
-        bind:load-more="onLoadMore"
+        is-show-more="{{ true }}"
         bind:refresh="onRefresh">
-  <view class="content">
-    <!-- 总数统计 -->
-    <view class="total-list">
-      <view class="item" wx:for="{{ totalList }}" wx:key="index">
-        <view class="num" style="color: {{ item.color }};"></view>
-        <view class="text"></view>
-      </view>
+    <view class="content">
+        <view wx:for="{{list}}" wx:key="index">{{item}}</view>
     </view>
-  </view>
 </scroll>
 
 <!-- 底部导航栏 -->

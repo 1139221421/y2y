@@ -17,21 +17,13 @@
              bindrefresherrefresh='refresher'
              wx:if="{{ scrollHeight }}">
     <!-- 有数据 -->
-    <view wx:if="{{listLen > 0}}" style="height: {{scrollHeight + 1}}px">
+    <view style="height: {{scrollHeight + 1}}px">
         <slot></slot>
-
-        <block wx:if="{{ isShowMore }}">
-            <view class="load-more" wx:if="{{ hasMore }}">加载中...</view>
-            <view class="no-more" wx:else>已经没有数据了</view>
-        </block>
+        <!-- 加载中 -->
+        <view wx:if="{{loading && !refresherTriggered}}" class="loading">{{loadingText}}</view>
+        <!-- 无结果 -->
+        <view wx:if="{{listLen === 0 && !loading && !refresherTriggered}}" class="no-result">
+            <text class="text">{{ noResultText }}</text>
+        </view>
     </view>
-
-    <!-- 无结果 -->
-    <view wx:elif="{{ !isLoading }}" class="no-result">
-        <slot name="no-result" wx:if="{{ customNoResult }}"></slot>
-        <text class="text" wx:else>{{ noResultText }}</text>
-    </view>
-
-    <!-- 加载中 -->
-    <view wx:else class="loading">加载中...</view>
 </scroll-view>

@@ -1,20 +1,37 @@
 const app = getApp();
+const db = wx.cloud.database();
 
 Page({
     data: {
         scrollHeight: 0, // 滚动屏的高度
         refresherTriggered: false,
-        list: [1, 2, 3, 4, 5]
+        loading: false,
+        list: [],
+        listLen: 0
     },
     // 加载触发
     onLoad: function () {
         this.initStyle();
+        this.init();
     },
     initStyle() {
         // 设置内容高度
         this.setData({
             scrollHeight: app.globalData.systemInfo.screenHeight - 200 * app.globalData.rpx
         });
+    },
+    init() {
+        this.setData({
+            loading: true,
+        })
+        db.collection('test').get().then(res => {
+            this.setData({list: res.data});
+            this.setData({
+                refresherTriggered: false,
+                listLen: res.data.length,
+                loading: false,
+            })
+        })
     },
     // 点击分享按钮
     onShareAppMessage(e) {
@@ -33,12 +50,14 @@ Page({
     },
     // 刷新
     onRefresh(e) {
-        setTimeout(() => {
-            this.setData({
-                refresherTriggered: false,
-            })
-        }, 2000)
+        this.init();
     },
     onLoadMore(e) {
+        setTimeout(() => {
+            this.setData({
+                listLen: 0,
+                loading: false,
+            })
+        }, 2000)
     }
 })

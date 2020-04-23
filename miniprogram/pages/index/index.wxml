@@ -1,12 +1,15 @@
 <wxs src="../../utils/common.wxs" module="utils"></wxs>
 <!-- 内容区 -->
-<scroll listLen="10"
-        scrollHeight="{{ scrollHeight }}"
+<scroll listLen="{{listLen}}"
+        scroll-height="{{ scrollHeight }}"
         refresher-triggered="{{ refresherTriggered }}"
-        is-show-more="{{ true }}"
-        bind:refresh="onRefresh">
+        loading="{{ loading }}"
+        bind:refresh="onRefresh"
+        bind:load-more="onLoadMore">
     <view class="content">
-        <view wx:for="{{list}}" wx:key="index">{{item}}</view>
+        <view wx:for="{{list}}" wx:key="index">
+            <text>nane:{{item.name}}</text>
+        </view>
     </view>
 </scroll>
 

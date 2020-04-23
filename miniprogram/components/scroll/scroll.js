@@ -14,6 +14,11 @@ Component({
             value: 0
         },
         // 没数据时展示的文本
+        loadingText: {
+            type: String,
+            value: '加载中...'
+        },
+        // 没数据时展示的文本
         noResultText: {
             type: String,
             value: '没有更多数据了'
@@ -68,20 +73,10 @@ Component({
             type: String,
             value: '0rpx'
         },
-        // 是否在加载数据中
-        isLoading: {
+        // 是否加载中
+        loading: {
             type: Boolean,
-            value: true
-        },
-        // 是否还有数据
-        hasMore: {
-            type: Boolean,
-            value: true
-        },
-        // 是否显示更多
-        isShowMore: {
-            type: Boolean,
-            value: true
+            value: false
         }
     },
 
@@ -100,12 +95,6 @@ Component({
         // 下拉触发
         onPulling(e) {
             console.log('下拉触发');
-            if (this.data.listLen == 0) {
-                this.setData({
-                    refreshEnable: false,
-                    refreshEnable: true,
-                })
-            }
             this.triggerEvent('pulling', {}, {bubbles: true});
         },
         // 复位触发
@@ -119,20 +108,21 @@ Component({
         // 中止触发
         onAbort(e) {
             console.log('中止触发');
-            this.setData({
-                refreshEnable: true,
-            })
             this.triggerEvent('abort', {}, {bubbles: true});
         },
         // 刷新
         refresher(e) {
-            console.log('刷新');
-            this.triggerEvent('refresh', {}, {bubbles: true});
+            if (this.data.refreshEnable) {
+                console.log('刷新');
+                this.setData({loading: true});
+                this.triggerEvent('refresh', {}, {bubbles: true});
+            }
         },
         // 加载更多
         loadMore(e) {
-            if (this.data.loadMoreEnable) {
-                console.log('加载更多')
+            if (this.data.loadMoreEnable && !this.data.refresherTriggered) {
+                console.log('加载更多');
+                this.setData({loading: true});
                 this.triggerEvent('load-more', {}, {bubbles: true});
             }
         },

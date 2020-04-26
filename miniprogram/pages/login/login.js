@@ -10,8 +10,7 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         login_bg: '../../images/bg.jpg',
         login_logo: '../../images/logo.png',
-        hidden: true,
-        openid: ''
+        hidden: true
     },
     /**
      * 授权登录
@@ -23,9 +22,8 @@ Page({
             name: 'login',
             data: {}
         }).then(res => {
-            let openid = res.result.openid;
-            this.setData({openid: openid});
-            this.getDbUser(openid, user => {
+            app.globalData.openid = res.result.openid;
+            this.getDbUser(user => {
                 if (user) {
                     this.updateLoginTime(user);
                 } else {
@@ -36,10 +34,8 @@ Page({
             });
         })
     },
-    getDbUser(openid, callback) {
-        db.collection('users').where({
-            _openid: openid
-        }).get().then(res => {
+    getDbUser(callback) {
+        db.collection('users').get().then(res => {
             callback(res.data && res.data.length > 0 ? res.data[0] : null);
         })
     },
@@ -71,7 +67,7 @@ Page({
      */
     reg(user) {
         // 注册时再验证用户是否存在 避免多次创建
-        this.getDbUser(this.data.openid, u => {
+        this.getDbUser(u => {
             if (u) {
                 this.updateLoginTime(u);
             } else {
@@ -80,7 +76,6 @@ Page({
                 db.collection('users').add({
                     data: user
                 }).then(res => {
-                    user._openid = this.data.openid;
                     user._id = res._id;
                     this.loginSuccess(user);
                 }, fail => {
@@ -94,7 +89,6 @@ Page({
         });
     },
     loginSuccess(user) {
-        app.globalData.openid = user._openid;
         app.globalData.userInfo = user;
         wx.hideLoading();
         this.toIndex();
@@ -106,7 +100,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        if (app.globalData.openid) {
+        if (app.globalData.openid && app.globalData.userInfo) {
             // 登录状态
             this.toIndex();
         } else {

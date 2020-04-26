@@ -15,7 +15,7 @@
 </scroll>
 
 <!-- 底部导航栏 -->
-<nav-bar active="0" wx:if="{{loginState}}"></nav-bar>
+<nav-bar active="0"></nav-bar>
 
 <!-- 底部弹出框 -->
 <bottom-operates

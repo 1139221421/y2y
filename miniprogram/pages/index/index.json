@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "nav-bar": "/components/nav-bar/nav-bar",
-    "scroll": "/components/scroll/scroll"
+    "scroll": "/components/scroll/scroll",
+    "bottom-operates": "../../components/bottom-operates/bottom-operates"
   },
   "navigationBarTitleText": "首页",
   "navigationBarBackgroundColor": "#fff",

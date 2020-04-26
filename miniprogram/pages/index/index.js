@@ -8,7 +8,13 @@ Page({
         loading: false,
         list: [],
         listLen: 0,
-        loginState: !!app.globalData.openid
+        loginState: !!app.globalData.openid,
+        showPopup: false,
+        operatorList: [
+            {text: '编辑', icon: 'icon-fabu', done: 'handleEdit'},
+            {text: '分享', icon: 'icon-share', done: 'handleShare'},
+            {text: '删除', icon: 'icon-shanchu', done: 'handleDel', disabled: true}
+        ],
     },
     // 加载触发
     onLoad: function () {
@@ -140,4 +146,22 @@ Page({
         this.setData({loginState: true});
         callback();
     },
+    // 底部弹出框点击操作
+    clickOperator(e) {
+        this[e.detail.done]();
+    },
+    showPopup() {
+        this.setData({
+            showPopup: true,
+        });
+    },
+    handleEdit() {
+        console.log('edit');
+    },
+    handleShare() {
+        console.log('share');
+    },
+    handleDel() {
+        console.log('del');
+    }
 })

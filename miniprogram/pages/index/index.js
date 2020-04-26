@@ -7,7 +7,8 @@ Page({
         refresherTriggered: false,
         loading: false,
         list: [],
-        listLen: 0
+        listLen: 0,
+        loginState: !!app.globalData.openid
     },
     // 加载触发
     onLoad: function () {
@@ -136,6 +137,7 @@ Page({
         app.globalData.openid = user._openid;
         app.globalData.userInfo = user;
         wx.hideLoading();
+        this.setData({loginState: true});
         callback();
     },
 })

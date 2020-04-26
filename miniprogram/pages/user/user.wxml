@@ -1,0 +1,5 @@
+<view>
+    <button open-type="contact" bindcontact="handleContact">在线客服</button>
+</view>
+<!-- 底部导航栏 -->
+<nav-bar active="1"></nav-bar>

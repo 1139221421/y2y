@@ -34,7 +34,7 @@ App({
         // 底部导航栏
         navList: [
             {icon: 'home-o', text: '首页', to: '/pages/index/index'},
-            {icon: 'apps-o', text: '登录', to: '/pages/login/login'}
+            {icon: 'user-circle-o', text: '我的', to: '/pages/user/user'}
         ]
     }
 })

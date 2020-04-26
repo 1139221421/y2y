@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/user/user"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -18,8 +19,8 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/login/login",
-        "text": "登录"
+        "pagePath": "pages/user/user",
+        "text": "我的"
       }
     ]
   },

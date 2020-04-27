@@ -76,5 +76,10 @@ Page({
             .then(res => {
                 app.globalData.userInfo = e.detail.userInfo;
             })
+    },
+    toInfo(){
+        wx.navigateTo({
+            url: '/pages/info/info'
+        })
     }
 })

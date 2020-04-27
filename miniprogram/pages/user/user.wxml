@@ -1,9 +1,9 @@
 <view>
     <view class="user-back">
-        <image class="avatar-url"
+        <image bindtap="toInfo" class="avatar-url"
                src="{{userInfo && userInfo.avatarUrl?userInfo.avatarUrl:'../../images/user-default.jpg'}}">
         </image>
-        <text class="nick-name" wx:if="{{userInfo && userInfo.nickName}}">{{userInfo.nickName}}</text>
+        <text bindtap="toInfo" class="nick-name" wx:if="{{userInfo && userInfo.nickName}}">{{userInfo.nickName}}</text>
         <button class="get-user-info"
                 open-type="getUserInfo"
                 bindgetuserinfo="getUserInfo"
@@ -11,6 +11,25 @@
                 wx:else>
             <text class="get-user-info-text">点击获取昵称</text>
         </button>
+    </view>
+    <view class="user-action">
+        <navigator class="user-action-to" url="/pages/info/info">
+            <van-icon name="like"/>
+            <text class="user-action-text">我的关注</text>
+        </navigator>
+        <navigator class="user-action-to" url="/pages/info/info">
+            <van-icon name="like"/>
+            <text class="user-action-text">我的关注</text>
+        </navigator>
+        <navigator class="user-action-to" url="/pages/info/info">
+            <van-icon name="like"/>
+            <text class="user-action-text">我的关注</text>
+        </navigator>
+        <navigator class="user-action-to" url="/pages/info/info">
+            <van-icon name="like"/>
+            <text class="user-action-text">我的关注</text>
+        </navigator>
+
     </view>
     <button open-type="contact" bindcontact="handleContact">在线客服</button>
 </view>

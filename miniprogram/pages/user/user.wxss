@@ -33,3 +33,30 @@
     line-height: 100rpx;
     padding-left: 20rpx;
 }
+
+.user-action{
+    margin: -100rpx 40rpx 40rpx 40rpx;
+    width: calc(100% - 80rpx);
+    height: 180rpx;
+    background-color: #fff;
+    border-style: solid;
+    box-shadow:0px 2px 4px 2px #DDDDDD;
+    border-width: 0rpx;
+    border-radius: 8rpx;
+    display: flex;
+}
+
+.user-action-to{
+    text-align: center;
+    height: 120rpx;
+    margin: 20rpx;
+    padding: 30rpx 0;
+    flex: 1;
+    color: #ff4519;
+}
+
+.user-action-text{
+    font-size: 12px;
+    color: #666;
+    display: block;
+}

@@ -1,6 +1,5 @@
 /* miniprogram/pages/user/user.wxss */
 .user-back {
-    width: 100%;
     height: 240rpx;
     background: linear-gradient(#33A6F9, #1989fa);
     padding: 10rpx 50rpx;
@@ -35,16 +34,16 @@
 }
 
 .y-block{
+    width: calc(100% - 80rpx);
     background-color: #fff;
-    border-style: solid;
-    box-shadow:1px 1px 4px 2px #DDDDDD;
-    border-width: 0px;
-    border-radius: 5px;
+    border-radius: 6rpx;
+    padding: 10rpx;
 }
 
 .user-action {
-    margin: -100rpx 30rpx 30rpx 30rpx;
-    width: calc(100% - 60rpx);
+    margin: 30rpx;
+    position: absolute;
+    top: 140rpx;
 }
 
 .user-action .van-icon{
@@ -52,8 +51,7 @@
 }
 
 .more-func{
-    margin: 30rpx;
-    width: calc(100% - 60rpx);
+    margin: 110rpx 30rpx 30rpx 30rpx;
     padding-top: 20rpx;
 }
 

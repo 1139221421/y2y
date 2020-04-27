@@ -8,7 +8,13 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: null
+        userInfo: null,
+        actionList: [
+            {name: '我的关注', icon: 'like', url: '/pages/info/info'},
+            {name: '我的消息', icon: 'chat', url: '/pages/info/info'},
+            {name: '浏览记录', icon: 'underway', url: '/pages/info/info'},
+            {name: '设置', icon: 'setting', url: '/pages/info/info'}
+        ]
     },
 
     /**
@@ -77,7 +83,7 @@ Page({
                 app.globalData.userInfo = e.detail.userInfo;
             })
     },
-    toInfo(){
+    toInfo() {
         wx.navigateTo({
             url: '/pages/info/info'
         })

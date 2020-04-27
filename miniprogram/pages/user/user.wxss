@@ -34,29 +34,50 @@
     padding-left: 20rpx;
 }
 
-.user-action{
-    margin: -100rpx 40rpx 40rpx 40rpx;
-    width: calc(100% - 80rpx);
-    height: 180rpx;
+.y-block{
     background-color: #fff;
     border-style: solid;
     box-shadow:0px 2px 4px 2px #DDDDDD;
-    border-width: 0rpx;
-    border-radius: 8rpx;
-    display: flex;
+    border-width: 0px;
+    border-radius: 5px;
 }
 
-.user-action-to{
-    text-align: center;
-    height: 120rpx;
-    margin: 20rpx;
-    padding: 30rpx 0;
-    flex: 1;
-    color: #ff4519;
+.user-action {
+    margin: -100rpx 30rpx 30rpx 30rpx;
+    width: calc(100% - 60rpx);
 }
 
-.user-action-text{
-    font-size: 12px;
+.user-action .van-icon{
+    color: rgba(255, 69, 25, 0.7);
+}
+
+.more-func{
+    margin: 30rpx;
+    width: calc(100% - 60rpx);
+    padding-top: 20rpx;
+}
+
+.more-func-title{
+    font-size: 14px;
     color: #666;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+.more-func .van-icon{
+    color: #33A6F9;
+}
+
+.more-func button {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    line-height: 50rpx;
+}
+
+.more-func button text{
+    color: #666;
+    font-size: 12px;
     display: block;
+    font-weight: normal;
 }

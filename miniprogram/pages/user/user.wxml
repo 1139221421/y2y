@@ -12,26 +12,30 @@
             <text class="get-user-info-text">点击获取昵称</text>
         </button>
     </view>
-    <view class="user-action">
-        <navigator class="user-action-to" url="/pages/info/info">
-            <van-icon name="like"/>
-            <text class="user-action-text">我的关注</text>
-        </navigator>
-        <navigator class="user-action-to" url="/pages/info/info">
-            <van-icon name="like"/>
-            <text class="user-action-text">我的关注</text>
-        </navigator>
-        <navigator class="user-action-to" url="/pages/info/info">
-            <van-icon name="like"/>
-            <text class="user-action-text">我的关注</text>
-        </navigator>
-        <navigator class="user-action-to" url="/pages/info/info">
-            <van-icon name="like"/>
-            <text class="user-action-text">我的关注</text>
-        </navigator>
-
+    <view class="user-action y-block">
+        <van-grid column-num="{{actionList.length}}" border="{{ false }}">
+            <van-grid-item icon="{{item.icon}}" text="{{item.name}}" url="{{item.url}}" wx:for="{{ actionList }}">
+            </van-grid-item>
+        </van-grid>
     </view>
-    <button open-type="contact" bindcontact="handleContact">在线客服</button>
+    <view class="more-func y-block">
+        <text class="more-func-title">更多功能</text>
+        <van-grid border="{{ false }}">
+            <van-grid-item use-slot>
+                <button open-type="feedback" size="mini">
+                    <van-icon name="question" size="26px"/>
+                    <text>问题建议</text>
+                </button>
+            </van-grid-item>
+            <van-grid-item use-slot>
+                <button open-type="contact" bindcontact="handleContact" size="mini">
+                    <van-icon name="service" size="26px"/>
+                    <text>在线客服</text>
+                </button>
+            </van-grid-item>
+        </van-grid>
+    </view>
+
 </view>
 <!-- 底部导航栏 -->
 <nav-bar active="1"></nav-bar>

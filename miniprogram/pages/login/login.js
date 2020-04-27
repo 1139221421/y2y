@@ -17,21 +17,17 @@ Page({
      */
     login() {
         // 调用云函数获取Openid
-        wx.showLoading();
+        wx.showLoading({title: '正在登录中...'});
         wx.cloud.callFunction({
             name: 'login',
             data: {}
         }).then(res => {
-            app.globalData.openid = res.result.openid;
             this.getDbUser(user => {
-                if (user) {
-                    this.updateLoginTime(user);
-                } else {
-                    // 未注册用户
-                    this.setData({hidden: false});
-                    wx.hideLoading();
-                }
+                this.updateLoginTime(user);
             });
+            app.globalData.openid = res.result.openid;
+            wx.hideLoading();
+            this.toIndex();
         })
     },
     getDbUser(callback) {
@@ -41,57 +37,23 @@ Page({
     },
     updateLoginTime(user) {
         // 更新用户登录时间
-        db.collection('users').doc(user._id)
-            .update({data: {lastLoginTime: new Date()}})
-            .then(
-                res => {
-                    this.loginSuccess(user);
-                },
-                fail => {
-                    wx.hideLoading();
-                    wx.showToast({
-                        title: '登录失败',
-                        icon: 'none'
-                    })
+        if (user) {
+            db.collection('users').doc(user._id)
+                .update({data: {lastLoginTime: new Date()}})
+                .then(res => {
                 })
+        } else {
+            db.collection('users').add({
+                data: {createTime: new Date(), lastLoginTime: new Date()}
+            }).then(res => {
+            })
+        }
     },
     /**
      * 获取用户信息 并注册
      */
     getUserInfo(res) {
-        wx.showLoading({title: '正在登录中...'});
-        this.reg(res.detail.userInfo);
-    },
-    /**
-     * 授权并注册注册
-     */
-    reg(user) {
-        // 注册时再验证用户是否存在 避免多次创建
-        this.getDbUser(u => {
-            if (u) {
-                this.updateLoginTime(u);
-            } else {
-                user.createTime = new Date();
-                user.lastLoginTime = new Date();
-                db.collection('users').add({
-                    data: user
-                }).then(res => {
-                    user._id = res._id;
-                    this.loginSuccess(user);
-                }, fail => {
-                    wx.hideLoading();
-                    wx.showToast({
-                        title: '登录失败',
-                        icon: 'none'
-                    })
-                })
-            }
-        });
-    },
-    loginSuccess(user) {
-        app.globalData.userInfo = user;
-        wx.hideLoading();
-        this.toIndex();
+        let user = res.detail.userInfo;
     },
     toIndex() {
         wx.switchTab({url: '/pages/index/index'});
@@ -100,7 +62,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        if (app.globalData.openid && app.globalData.userInfo) {
+        if (app.globalData.openid) {
             // 登录状态
             this.toIndex();
         } else {

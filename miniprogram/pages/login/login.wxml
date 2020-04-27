@@ -1,13 +1,13 @@
 <view class="login_main" hidden="{{hidden}}">
-	<view>
-		<image class='login_bg' mode="aspectFill" src="{{login_bg}}"></image>
-	</view>
-	<view>
-		<view>
-			<image class='login_logo' mode="aspectFill" src="{{login_logo}}"></image>
-		</view>
-		<view class="btn_wrap">
-			<button class="login_btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信一键登录</button>
-		</view>
-	</view>
+    <!--	<view>-->
+    <!--		<image class='login_bg' mode="aspectFill" src="{{login_bg}}"></image>-->
+    <!--	</view>-->
+    <!--	<view>-->
+    <!--		<view>-->
+    <!--			<image class='login_logo' mode="aspectFill" src="{{login_logo}}"></image>-->
+    <!--		</view>-->
+    <!--		<view class="btn_wrap">-->
+    <!--			<button class="login_btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信一键登录</button>-->
+    <!--		</view>-->
+    <!--	</view>-->
 </view>

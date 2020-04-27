@@ -41,9 +41,7 @@
 }
 
 .user-action {
-    margin: 30rpx;
-    position: absolute;
-    top: 140rpx;
+    margin: -100rpx 30rpx 30rpx 30rpx;
 }
 
 .user-action .van-icon{
@@ -51,15 +49,19 @@
 }
 
 .more-func{
-    margin: 110rpx 30rpx 30rpx 30rpx;
+    margin: 30rpx;
     padding-top: 20rpx;
 }
 
 .more-func-title{
     font-size: 14px;
     color: #666;
-    font-weight: 600;
+    font-weight: 700;
     padding: 0 10px;
+}
+
+.more-func .van-grid-item__content--center{
+    padding: 16px 0;
 }
 
 .more-func .van-icon{
@@ -67,6 +69,7 @@
 }
 
 .more-func button {
+    width: 100%;
     background-color: transparent;
     padding: 0;
     margin: 0;
@@ -79,3 +82,4 @@
     display: block;
     font-weight: normal;
 }
+

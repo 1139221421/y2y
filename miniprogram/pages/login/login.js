@@ -41,11 +41,15 @@ Page({
             db.collection('users').doc(user._id)
                 .update({data: {lastLoginTime: new Date()}})
                 .then(res => {
+                    app.globalData.userInfo = user;
                 })
         } else {
+            user = {createTime: new Date(), lastLoginTime: new Date()};
             db.collection('users').add({
-                data: {createTime: new Date(), lastLoginTime: new Date()}
+                data: user
             }).then(res => {
+                user._id = res._id;
+                app.globalData.userInfo = user;
             })
         }
     },
@@ -56,7 +60,7 @@ Page({
         let user = res.detail.userInfo;
     },
     toIndex() {
-        wx.switchTab({url: '/pages/index/index'});
+        wx.switchTab({url: '/pages/user/user'});
     },
     /**
      * 生命周期函数--监听页面加载

@@ -1,4 +1,17 @@
 <view>
+    <view class="user-back">
+        <image class="avatar-url"
+               src="{{userInfo && userInfo.avatarUrl?userInfo.avatarUrl:'../../images/user-default.jpg'}}">
+        </image>
+        <text class="nick-name" wx:if="{{userInfo && userInfo.nickName}}">{{userInfo.nickName}}</text>
+        <button class="get-user-info"
+                open-type="getUserInfo"
+                bindgetuserinfo="getUserInfo"
+                size="mini"
+                wx:else>
+            <text class="get-user-info-text">点击获取昵称</text>
+        </button>
+    </view>
     <button open-type="contact" bindcontact="handleContact">在线客服</button>
 </view>
 <!-- 底部导航栏 -->

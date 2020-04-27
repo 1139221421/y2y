@@ -1,1 +1,35 @@
 /* miniprogram/pages/user/user.wxss */
+.user-back {
+    width: 100%;
+    height: 240rpx;
+    background: linear-gradient(#33A6F9, #1989fa);
+    padding: 10rpx 50rpx;
+    display: flex;
+}
+
+.avatar-url {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+}
+
+.get-user-info {
+    background-color: transparent;
+    color: #fff;
+    height: 100rpx;
+    margin: 0;
+}
+
+.nick-name{
+    color: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 40rpx;
+}
+
+.get-user-info-text{
+    color: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 20rpx;
+}

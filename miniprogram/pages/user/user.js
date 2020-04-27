@@ -1,16 +1,21 @@
 // miniprogram/pages/user/user.js
+const app = getApp();
+const db = wx.cloud.database();
+
 Page({
 
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        userInfo: null
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({userInfo: app.globalData.userInfo})
     },
 
     /**
@@ -63,5 +68,13 @@ Page({
     },
     handleContact(e) {
         console.log(e.detail)
+    },
+    getUserInfo(e) {
+        this.setData({userInfo: e.detail.userInfo});
+        db.collection('users').where({_openid: app.globalData.openid})
+            .update({data: e.detail.userInfo})
+            .then(res => {
+                app.globalData.userInfo = e.detail.userInfo;
+            })
     }
 })

@@ -22,12 +22,10 @@ Page({
             name: 'login',
             data: {}
         }).then(res => {
+            app.globalData.openid = res.result.openid;
             this.getDbUser(user => {
                 this.updateLoginTime(user);
             });
-            app.globalData.openid = res.result.openid;
-            wx.hideLoading();
-            this.toIndex();
         })
     },
     getDbUser(callback) {
@@ -42,6 +40,8 @@ Page({
                 .update({data: {lastLoginTime: new Date()}})
                 .then(res => {
                     app.globalData.userInfo = user;
+                    wx.hideLoading();
+                    this.toIndex();
                 })
         } else {
             user = {createTime: new Date(), lastLoginTime: new Date()};
@@ -50,6 +50,8 @@ Page({
             }).then(res => {
                 user._id = res._id;
                 app.globalData.userInfo = user;
+                wx.hideLoading();
+                this.toIndex();
             })
         }
     },

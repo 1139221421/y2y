@@ -10,38 +10,39 @@ Page({
         listLen: 0,
         showPopup: false,
         operatorList: [
-            {text: '编辑', icon: 'icon-fabu', done: 'handleEdit'},
-            {text: '分享', icon: 'icon-share', done: 'handleShare'},
-            {text: '删除', icon: 'icon-shanchu', done: 'handleDel', disabled: true}
+            { text: '编辑', icon: 'icon-fabu', done: 'handleEdit' },
+            { text: '分享', icon: 'icon-share', done: 'handleShare' },
+            { text: '删除', icon: 'icon-shanchu', done: 'handleDel', disabled: true }
         ],
         top: app.globalData.navigateHeaderHeight + 'px',
         types: [
-            {_id: '1', name: '分类1', active: true},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '2', name: '分类2'},
-            {_id: '3', name: '分类3'}
+            { _id: '', name: '全部', active: true },
+            { _id: '1', name: '分类1' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '2', name: '分类2' },
+            { _id: '3', name: '分类3' }
         ]
     },
     // 加载触发
@@ -55,12 +56,12 @@ Page({
             scrollHeight: app.globalData.systemInfo.screenHeight - 200 * app.globalData.rpx
         });
     },
-    init() {
+    init(typeId) {
         this.setData({
             loading: true,
         })
         db.collection('test').get().then(res => {
-            this.setData({list: res.data});
+            this.setData({ list: res.data });
             this.setData({
                 refresherTriggered: false,
                 listLen: res.data.length,
@@ -126,6 +127,7 @@ Page({
             });
         }
         let id = this.data.types[index]._id;
-        console.log(id);
+        this.setData({ showPopup: false });
+        this.init(id)
     }
 })

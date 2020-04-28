@@ -24,7 +24,7 @@
         <van-grid border="{{ false }}">
             <van-grid-item use-slot>
                 <button open-type="feedback" size="mini">
-                    <van-icon name="question" size="26px"/>
+                    <van-icon name="question-o" size="26px"/>
                     <text>问题建议</text>
                 </button>
             </van-grid-item>

@@ -14,7 +14,8 @@
     </view>
     <view class="user-action y-block">
         <van-grid column-num="{{actionList.length}}" border="{{ false }}">
-            <van-grid-item icon="{{item.icon}}" text="{{item.name}}" url="{{item.url}}" wx:key="index" wx:for="{{ actionList }}">
+            <van-grid-item icon="{{item.icon}}" text="{{item.name}}" url="{{item.url}}" wx:key="index"
+                           wx:for="{{ actionList }}">
             </van-grid-item>
         </van-grid>
     </view>
@@ -31,6 +32,12 @@
                 <button open-type="contact" bindcontact="handleContact" size="mini">
                     <van-icon name="service" size="26px"/>
                     <text>在线客服</text>
+                </button>
+            </van-grid-item>
+            <van-grid-item use-slot>
+                <button open-type="share" bindcontact="handleContact" size="mini">
+                    <van-icon name="share" size="26px"/>
+                    <text>分享</text>
                 </button>
             </van-grid-item>
         </van-grid>

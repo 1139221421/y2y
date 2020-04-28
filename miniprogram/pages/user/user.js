@@ -69,8 +69,12 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
-
+    onShareAppMessage: function (e) {
+        // return {
+        //     title: '分享测试',
+        //     path: '/pages/user/user',
+        //     imageUrl: '../../images/user-default.jpg'
+        // }
     },
     handleContact(e) {
         console.log(e.detail)

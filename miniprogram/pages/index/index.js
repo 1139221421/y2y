@@ -8,12 +8,41 @@ Page({
         loading: false,
         list: [],
         listLen: 0,
-        showPopup: false,
+        showPopup: true,
         operatorList: [
-            { text: '编辑', icon: 'icon-fabu', done: 'handleEdit' },
-            { text: '分享', icon: 'icon-share', done: 'handleShare' },
-            { text: '删除', icon: 'icon-shanchu', done: 'handleDel', disabled: true }
+            {text: '编辑', icon: 'icon-fabu', done: 'handleEdit'},
+            {text: '分享', icon: 'icon-share', done: 'handleShare'},
+            {text: '删除', icon: 'icon-shanchu', done: 'handleDel', disabled: true}
         ],
+        top: app.globalData.navigateHeaderHeight + 'px',
+        types: [
+            {_id: '1', name: '分类1', active: true},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '2', name: '分类2'},
+            {_id: '3', name: '分类3'}
+        ]
     },
     // 加载触发
     onLoad: function () {
@@ -31,7 +60,7 @@ Page({
             loading: true,
         })
         db.collection('test').get().then(res => {
-            this.setData({ list: res.data });
+            this.setData({list: res.data});
             this.setData({
                 refresherTriggered: false,
                 listLen: res.data.length,
@@ -75,6 +104,11 @@ Page({
             showPopup: true,
         });
     },
+    closeLeftBar() {
+        this.setData({
+            showPopup: false,
+        });
+    },
     handleEdit() {
         console.log('edit');
     },
@@ -83,5 +117,15 @@ Page({
     },
     handleDel() {
         console.log('del');
+    },
+    itemClick(e) {
+        let index = e.currentTarget.id;
+        for (let i = 0; i < this.data.types.length; i++) {
+            this.setData({
+                ["types[" + i + "].active"]: (index == i)
+            });
+        }
+        let id = this.data.types[index]._id;
+        console.log(id);
     }
 })

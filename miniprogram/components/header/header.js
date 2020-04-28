@@ -13,7 +13,7 @@ Component({
         // 左边 icon，默认为左箭头图标
         icon: {
             type: String,
-            value: 'left'
+            value: 'arrow-left'
         },
         // 是否自定义 icon
         customIcon: {
@@ -65,7 +65,7 @@ Component({
             })
         },
         iconHandler() {
-            if (this.properties.icon === 'left') {
+            if (this.properties.icon === 'arrow-left') {
                 wx.navigateBack({delta: 1})
             } else if (this.properties.icon === 'home') {
                 wx.switchTab({url: '/pages/index/index'})

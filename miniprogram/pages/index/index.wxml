@@ -1,5 +1,5 @@
 <wxs src="../../utils/common.wxs" module="utils"></wxs>
-<header title="首页" customIcon="{{true}}"></header>
+<header title="首页" icon="bars" bind:click-icon="showPopup"></header>
 <!-- 内容区 -->
 <scroll listLen="{{listLen}}"
         scroll-height="{{ scrollHeight }}"
@@ -26,5 +26,25 @@
 <!--        list="{{ operatorList }}"-->
 <!--        bind:click-item="clickOperator"-->
 <!--&gt;</bottom-operates>-->
+
+<van-popup
+        show="{{ showPopup }}"
+        bind:close="closeLeftBar"
+        position="left"
+        z-index="100"
+        custom-style="height: 100%;">
+    <view class="left-bar" style="margin-top: {{top}}">
+        <text class="left-bar-title">选择分类</text>
+        <view class="item-types">
+            <view class="{{item.active?'item-type item-active':'item-type'}}"
+                  bindtap="itemClick"
+                  id="{{index}}"
+                  wx:for="{{types}}"
+                  wx:key="index">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+</van-popup>
 
 

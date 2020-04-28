@@ -24,7 +24,9 @@ image {
 
 /* 点中的样式 */
 view.item-active {
-  background: rgba(90,190,247,0.2) !important;
+    background: rgba(90,190,247) !important;
+    border-color: rgba(90,190,247) !important;
+    color: #fff;
 }
 
 .no-function {

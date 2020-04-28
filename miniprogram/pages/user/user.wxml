@@ -13,14 +13,14 @@
             <text class="get-user-info-text">点击获取昵称</text>
         </button>
     </view>
-    <view class="user-action y-block">
+    <van-row class="user-action">
         <van-grid column-num="{{actionList.length}}" border="{{ false }}">
             <van-grid-item icon="{{item.icon}}" text="{{item.name}}" url="{{item.url}}" wx:key="index"
                            wx:for="{{ actionList }}">
             </van-grid-item>
         </van-grid>
-    </view>
-    <view class="more-func y-block">
+    </van-row>
+    <van-row class="more-func">
         <text class="more-func-title">更多功能</text>
         <van-grid border="{{ false }}">
             <van-grid-item use-slot>
@@ -42,8 +42,7 @@
                 </button>
             </van-grid-item>
         </van-grid>
-    </view>
-
+    </van-row>
 </view>
 <!-- 底部导航栏 -->
 <nav-bar active="1"></nav-bar>

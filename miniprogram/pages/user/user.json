@@ -2,6 +2,7 @@
   "usingComponents": {
     "nav-bar": "/components/nav-bar/nav-bar",
     "van-grid": "@vant/weapp/grid/index",
+    "van-row": "@vant/weapp/row/index",
     "van-grid-item": "@vant/weapp/grid-item/index"
   }
 }

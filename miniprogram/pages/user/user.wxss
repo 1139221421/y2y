@@ -1,4 +1,8 @@
 /* miniprogram/pages/user/user.wxss */
+page{
+    background-color: #f6f6f6;
+}
+
 .user-back {
     height: 240rpx;
     background: linear-gradient(#33A6F9, #1989fa);
@@ -33,14 +37,11 @@
     padding-left: 20rpx;
 }
 
-.y-block{
+.user-action .van-row{
     width: calc(100% - 80rpx);
     background-color: #fff;
     border-radius: 6rpx;
     padding: 10rpx;
-}
-
-.user-action {
     margin: -100rpx 30rpx 30rpx 30rpx;
 }
 
@@ -48,9 +49,12 @@
     color: rgba(255, 69, 25, 0.7);
 }
 
-.more-func{
+.more-func .van-row{
+    width: calc(100% - 80rpx);
+    background-color: #fff;
+    border-radius: 6rpx;
+    padding: 10rpx;
     margin: 30rpx;
-    padding-top: 20rpx;
 }
 
 .more-func-title{
@@ -68,7 +72,7 @@
     color: #33A6F9;
 }
 
-.more-func button {
+.more-func button[size='mini'] {
     width: 100%;
     background-color: transparent;
     padding: 0;

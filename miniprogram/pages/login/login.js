@@ -1,5 +1,5 @@
 //获取应用实例
-const app = getApp()
+const app = getApp();
 const db = wx.cloud.database();
 
 Page({
@@ -62,7 +62,7 @@ Page({
         let user = res.detail.userInfo;
     },
     toIndex() {
-        wx.switchTab({url: '/pages/user/user'});
+        wx.switchTab({url: '/pages/index/index'});
     },
     /**
      * 生命周期函数--监听页面加载

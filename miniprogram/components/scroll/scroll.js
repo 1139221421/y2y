@@ -1,3 +1,4 @@
+const app = getApp();
 Component({
     options: {
         // 在组件定义时的选项中启用多slot支持
@@ -71,7 +72,7 @@ Component({
         // 滚动屏的 top
         top: {
             type: String,
-            value: '0rpx'
+            value: app.globalData.navigateHeaderHeight + 'px'
         },
         // 是否加载中
         loading: {

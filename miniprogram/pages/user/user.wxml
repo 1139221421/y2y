@@ -14,7 +14,7 @@
     </view>
     <view class="user-action y-block">
         <van-grid column-num="{{actionList.length}}" border="{{ false }}">
-            <van-grid-item icon="{{item.icon}}" text="{{item.name}}" url="{{item.url}}" wx:for="{{ actionList }}">
+            <van-grid-item icon="{{item.icon}}" text="{{item.name}}" url="{{item.url}}" wx:key="index" wx:for="{{ actionList }}">
             </van-grid-item>
         </van-grid>
     </view>

@@ -8,7 +8,7 @@ Page({
         loading: false,
         list: [],
         listLen: 0,
-        showPopup: true,
+        showPopup: false,
         operatorList: [
             {text: '编辑', icon: 'icon-fabu', done: 'handleEdit'},
             {text: '分享', icon: 'icon-share', done: 'handleShare'},

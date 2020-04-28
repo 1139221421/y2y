@@ -17,8 +17,8 @@ App({
                 this.globalData.systemInfo = wx.getSystemInfoSync();
                 this.globalData.rpx = this.globalData.systemInfo.windowWidth / 750;
                 this.globalData.statusBarHeight = this.globalData.systemInfo.statusBarHeight;
-                let menuButton = this.globalData.menuButton = wx.getMenuButtonBoundingClientRect();
-                this.globalData.navigateHeaderHeight = menuButton.top - this.globalData.statusBarHeight + menuButton.bottom;
+                this.globalData.menuButton = wx.getMenuButtonBoundingClientRect();
+                this.globalData.navigateHeaderHeight = this.globalData.menuButton.top - this.globalData.statusBarHeight + this.globalData.menuButton.bottom;
             } catch (e) {
                 console.log('初始化错误', e)
             }
@@ -28,9 +28,9 @@ App({
         userInfo: null,
         systemInfo: {},     // 系统信息
         rpx: 0,   // rpx转换为px的比例
-        statusBarHeight: 0,
-        menuButton: 0,
-        navigateHeaderHeight: 64,   // 原生 header 的高度
+        statusBarHeight: 0, // 状态栏的高度，单位px
+        menuButton: {}, // 菜单按钮（右上角胶囊按钮）的布局位置信息
+        navigateHeaderHeight: 0,   // 原生 header 的高度
         // 底部导航栏
         navList: [
             {icon: 'home-o', text: '首页', to: '/pages/index/index'},

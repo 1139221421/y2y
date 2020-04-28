@@ -1,3 +1,4 @@
+<header title="我的" icon="home" background="#33A6F9" color="#fff" customIcon="{{true}}"></header>
 <view>
     <view class="user-back">
         <image bindtap="toInfo" class="avatar-url"

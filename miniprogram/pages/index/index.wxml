@@ -1,4 +1,5 @@
 <wxs src="../../utils/common.wxs" module="utils"></wxs>
+<header title="首页" customIcon="{{true}}"></header>
 <!-- 内容区 -->
 <scroll listLen="{{listLen}}"
         scroll-height="{{ scrollHeight }}"

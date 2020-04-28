@@ -1,21 +1,21 @@
 <!-- 顶部 header -->
 <view class="header" style="{{ headerStyle }}">
-  <van-icon class="icon"
-            name="arrow-left"
-            style="{{ iconStyle }}"
-            wx:if="{{ !customIcon && icon==='left' }}"
-            bindtap="iconHandler" />
-  <van-icon class="icon icon-home"
-            name="wap-home-o"
-            style="{{ iconStyle }}"
-            wx:if="{{ !customIcon && icon==='home' }}"
-            bindtap="iconHandler" />
+    <van-icon class="icon"
+              name="arrow-left"
+              style="{{ iconStyle }}"
+              wx:if="{{ !customIcon && icon==='left' }}"
+              bindtap="iconHandler"/>
+    <van-icon class="icon icon-home"
+              name="wap-home-o"
+              style="{{ iconStyle }}"
+              wx:if="{{ !customIcon && icon==='home' }}"
+              bindtap="iconHandler"/>
 
-  <!-- 自定义图标 -->
-  <view style="{{ iconStyle }}" wx:if="{{ customIcon }}">
-    <slot name="icon"></slot>
-  </view>
-  <!-- 标题 -->
-  <view class="title">{{ title }}</view>
+    <!-- 自定义图标 -->
+    <view style="{{ iconStyle }}" wx:if="{{ customIcon }}">
+        <slot name="icon"></slot>
+    </view>
+    <!-- 标题 -->
+    <view class="title">{{ title }}</view>
 </view>
 <view style="{{ headerStyle }}"></view>
